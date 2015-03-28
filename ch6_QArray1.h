@@ -14,6 +14,7 @@
 typedef struct {
 	int embros;		/*θέση του πρώτου στοιχείου της ουράς*/
 	int piso;		/*θέση του τελευταίου στοιχείου της ουράς*/
+	int metritis;
 	TStoixeioyOuras pinakas[PLITHOS];	/*ο πίνακας στοιχείων*/
 } TOuras;	   /*ο τύπος της ουράς*/
 
@@ -25,6 +26,7 @@ void OuraDimiourgia(TOuras *oura);
 /*Πράξεις έλεγχου*/
 int	OuraKeni	(TOuras oura);
 int	GematiOura	(TOuras oura);
+int SizeOuras(TOuras oura);
 
 /*Πράξεις προσθεσης/απομάκρυνσης*/
 int OuraProsthesi	(TOuras *oura, TStoixeioyOuras stoixeio);

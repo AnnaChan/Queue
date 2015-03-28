@@ -29,6 +29,13 @@ int GematiOura(TOuras oura)
 	return (oura.metritis == PLITHOS);
 }
 
+int SizeOuras(TOuras oura)
+{/*	Pro: 		Dhmioyrgia Oyras
+  *	Meta:		epistrefei to plhthos stoixeiwn ths ouras */
+  return oura.metritis;
+	
+}
+
 int OuraProsthesi(TOuras *oura, TStoixeioyOuras stoixeio)
 {/*	Pro: 		Dhmioyrgia Oyras
   *	Meta: 		Oyra exei epayksh8ei me to stoixeio */

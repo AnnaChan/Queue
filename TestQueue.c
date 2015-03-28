@@ -65,6 +65,7 @@ int main(void)
 		}
 	} 
 	while ((0<= i) && (i<=6));
+	printf("To plhtos ths ouras einai: %d ", SizeOuras(oura));
 	
 	return 0;
 }
