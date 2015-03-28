@@ -10,31 +10,33 @@
 /*oρισμός συναρτήσεων*/
 
 void OuraDimiourgia(TOuras *oura )
-{
+{/*	Pro: 		kamia
+  *	Meta: 		Dhmioyrgia kenhs oyras */
 	oura->embros =  0;
 	oura->piso = 0;
+	oura->metritis = 0;
 }
 
 int OuraKeni(TOuras oura)
-{
-	return ( oura.embros == oura.piso );
+{/*	Pro: 		Dhmioyrgia Oyras
+  *	Meta:		epistrefei 1 an h oyra einai gemath, diaforetika 0 */
+	return ( oura.metritis == 0 );
 }
 
 int GematiOura(TOuras oura)
-{
-	int neo_piso = (oura.piso+1) % PLITHOS;
-	if (neo_piso == oura.embros )
-		return 1;
-	else 
-		return 0;
+{/*	Pro: 		Dhmioyrgia Oyras
+  *	Meta:		epistrefei 1 an h oyra einai gemath, diaforetika 0 */
+	return (oura.metritis == PLITHOS);
 }
 
 int OuraProsthesi(TOuras *oura, TStoixeioyOuras stoixeio)
-{
+{/*	Pro: 		Dhmioyrgia Oyras
+  *	Meta: 		Oyra exei epayksh8ei me to stoixeio */
 	if (GematiOura(*oura))
 		return 0;
 	else
 	{
+		oura->metritis++;
 		TSoura_setValue(&(oura->pinakas[oura->piso]),stoixeio); /* abstraction for any type */
 		oura->piso = ( oura->piso + 1 )% PLITHOS;
 	}
@@ -42,11 +44,13 @@ int OuraProsthesi(TOuras *oura, TStoixeioyOuras stoixeio)
 }
 
 int OuraApomakrynsh(TOuras *oura, TStoixeioyOuras *stoixeio)
-{
+{/*	Pro: 		Dhmioyrgia Oyras
+  *	Meta: 		Oyra exei meiw8ei kata ena stoixeio */
 	if (OuraKeni(*oura))
 		return 0;
 	else
 	{
+		oura->metritis--;
 		TSoura_setValue(stoixeio, oura->pinakas[oura->embros]); /* abstraction for any type */
 		oura->embros = ( oura->embros + 1 )% PLITHOS;
 	}
@@ -71,10 +75,11 @@ void inspectQbyOrder (TOuras oura)
 
 void inspectQbyArray (TOuras oura)
 { int i;
-	for (i=0; i<PLITHOS; i++){
+	for (i=0; i<PLITHOS; i++)
+	{
 			TSoura_writeValue(stdout, oura.pinakas[i]);
 			printf("-");
-}
+	}
 	printf("\n");
 
 }
